@@ -47,7 +47,7 @@ class Research extends Component {
                     join the website , she record some excise and upload data like :40 min jog, 30 push ups ，20 Sit-ups
                     in
                     10:30 am at 24 hours Gym Club san jose CA and post some picture or videos. People in this club might
-                    receive Jame doing great jobs and they can thumbs up for her work and subscribe her's chancel like
+                    receive Jame doing great jobs and they can thumbs up for her work and subscribe her chancel like
                     youtube. She might encouraged and work more hard to reduce weight.
                     <br/>
                     <br/>
@@ -77,10 +77,10 @@ class Research extends Component {
                     <br/>
                     Nutrition, Physical Activity, and Obesity - Behavioral Risk Factor Surveillance System：
                     <br/>
-                    This dataset includes data on adult's diet, physical activity, and weight status from Behavioral
+                    This data set includes data on adult diet, physical activity, and weight status from Behavioral
                     Risk
                     Factor Surveillance System.
-                    This data is used for DNPAO's Data, Trends, and Maps database, which provides national and state
+                    This data is used for DNPAO  Data, Trends, and Maps database, which provides national and state
                     specific data on obesity, nutrition, physical activity,
                     and breastfeeding.
                     <br/>
@@ -116,7 +116,7 @@ class Research extends Component {
                     <h3> Problem statement</h3>
                     <body>
                     People want to improve their house design quality, but they don't know how to find good designer,
-                    and designer can't easy get business and find individual customer this
+                    and designer can not easy get business and find individual customer this
                     website to provide a solution for customers and designer
                     </body>
                     <h3> Target audience</h3>
