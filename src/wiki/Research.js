@@ -115,7 +115,7 @@ class Research extends Component {
 
                     <h3> Problem statement</h3>
                     <body>
-                    People want to improve their house design quality, but they don't know how to find good designer,
+                    People want to improve their house design quality, but they do not know how to find good designer,
                     and designer can not easy get business and find individual customer this
                     website to provide a solution for customers and designer
                     </body>
