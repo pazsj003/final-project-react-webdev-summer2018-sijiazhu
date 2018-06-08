@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Research from "./Research";
 import {Switch} from 'react-router'
+
 class Wiki extends Component {
     render() {
         return (

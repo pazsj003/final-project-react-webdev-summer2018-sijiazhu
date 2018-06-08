@@ -153,7 +153,8 @@ class Research extends Component {
 
                     <h3> Problem statement</h3>
                     <body>
-                    Player sometime is stack in  one Scene of game and can't continue. This website provide gaming strategy to Clearance.
+                    Player sometime is stack in one Scene of game and can't continue. This website provide gaming
+                    strategy to Clearance.
                     </body>
                     <h3> Target audience</h3>
                     <body>
