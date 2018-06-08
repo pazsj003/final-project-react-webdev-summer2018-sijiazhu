@@ -9,7 +9,7 @@ class Research extends Component {
                     <h2>Topic one: Fitness-Network</h2>
 
                     <h3> Problem statement</h3>
-                    <body> Nowadays, people are stressful for their life: working, studying. They don't have time and
+                    <body> Nowadays, people are stressful for their life: working, studying. They do not have time and
                     motivations to do some exercise and relax. potential health problem is increasing fast in recent
                     years:
                     Diabetes, Cardiovascular problem, Depression.
