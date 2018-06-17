@@ -36,21 +36,6 @@ class Wiki extends Component {
                     </div>
 
 
-                            <Link to={'/research'}>
-                            Research
-                        </Link> |
-                            <Route path="/research"
-                                   component={Research}>
-                            </Route>
-
-
-                    <Link to={'/design'}>
-                        Design
-                    </Link>
-                    <Route path="/design"
-                           component={Design}>
-                    </Route>
-
                 </div>
 
             </Router>

@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c96946d2-c413-4d32-8b59-a4520bdf867c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/wiki/Design.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/wiki/Design.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/wiki/Design.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/wiki/wiki.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/wiki/wiki.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -31,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wiki.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wiki.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/wiki/wiki.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
+            <state relative-caret-position="230">
+              <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -43,11 +43,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Design.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Design.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/wiki/Design.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+            <state relative-caret-position="594">
+              <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -58,8 +58,8 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Home/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" selection-start-line="19" selection-end-line="19" />
+            <state relative-caret-position="407">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="22" selection-end-column="28" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -70,8 +70,8 @@
       <file leaf-file-name="Research.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/wiki/Research.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5376">
-              <caret line="192" selection-start-line="192" selection-end-line="192" selection-end-column="24" />
+            <state relative-caret-position="247">
+              <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -87,9 +87,9 @@
         <option value="$PROJECT_DIR$/src/wiki.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/wiki/Research.js" />
+        <option value="$PROJECT_DIR$/src/wiki/Design.js" />
         <option value="$PROJECT_DIR$/src/Home/home.js" />
         <option value="$PROJECT_DIR$/src/wiki/wiki.js" />
-        <option value="$PROJECT_DIR$/src/wiki/Design.js" />
       </list>
     </option>
   </component>
@@ -193,12 +193,12 @@
       <updated>1528410430326</updated>
       <workItem from="1528410431621" duration="13785000" />
       <workItem from="1528493133090" duration="1834000" />
-      <workItem from="1529069731953" duration="3695000" />
+      <workItem from="1529069731953" duration="5482000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19314000" />
+    <option name="totallyTimeSpent" value="21101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="945" extended-state="0" />
@@ -337,37 +337,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Home/home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/wiki/Research.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5376">
-          <caret line="192" selection-start-line="192" selection-end-line="192" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/wiki/wiki.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="40" column="33" selection-start-line="40" selection-start-column="33" selection-end-line="40" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#38#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="247">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/wiki/Design.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="12" column="16" lean-forward="true" selection-start-line="12" selection-start-column="16" selection-end-line="12" selection-end-column="16" />
+        <state relative-caret-position="594">
+          <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Home/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="22" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#38#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/wiki/wiki.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="36" lean-forward="true" selection-start-line="36" selection-end-line="36" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>

@@ -13,12 +13,17 @@ class Home extends Component {
                     <Route path="/home"
                            component={Wiki}>
                     </Route>
-                    <Route path="/research"
+                    <Link to={'/home/research'}>
+                        Research
+                    </Link> |
+                    <Route path="/home/research"
                            component={Research}>
                     </Route>
 
-
-                    <Route path="/design"
+                    <Link to={'/home/design'}>
+                        Design
+                    </Link>
+                    <Route path="/home/design"
                            component={Design}>
                     </Route>
                 </div>
