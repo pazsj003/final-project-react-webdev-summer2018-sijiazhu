@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Wiki from '../wiki/wiki'
 import Research from "../wiki/Research";
+import Design from "../wiki/Design";
 
 class Home extends Component {
 
@@ -14,6 +15,11 @@ class Home extends Component {
                     </Route>
                     <Route path="/research"
                            component={Research}>
+                    </Route>
+
+
+                    <Route path="/design"
+                           component={Design}>
                     </Route>
                 </div>
 

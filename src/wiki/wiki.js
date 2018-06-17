@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Research from "./Research";
+import Design from "./Design";
 import {Switch} from 'react-router'
 
 class Wiki extends Component {
@@ -35,13 +36,20 @@ class Wiki extends Component {
                     </div>
 
 
-                    <Link to={'/research'}>
-                        Research
-                    </Link>
-                    <Route path="/research"
-                           component={Research}>
-                    </Route>
+                            <Link to={'/research'}>
+                            Research
+                        </Link> |
+                            <Route path="/research"
+                                   component={Research}>
+                            </Route>
 
+
+                    <Link to={'/design'}>
+                        Design
+                    </Link>
+                    <Route path="/design"
+                           component={Design}>
+                    </Route>
 
                 </div>
 
