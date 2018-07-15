@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Wiki from '../wiki/wiki'
-import Research from "../wiki/Research";
-import Design from "../wiki/Design";
+import api from '../Api/api'
+import gymEditor from '../gym/gymEditor'
 
 class Home extends Component {
 
@@ -10,23 +10,39 @@ class Home extends Component {
         return (
             <Router>
                 <div>
-                    <Route path="/home"
-                           component={Wiki}>
-                    </Route>
-                    <Link to={'/home/research'}>
-                        Research
-                    </Link> |
-                    <Route path="/home/research"
-                           component={Research}>
-                    </Route>
+                    <div>
+                        <Link to={'/home'}>
+                            home
+                        </Link>|
 
-                    <Link to={'/home/design'}>
-                        Design
-                    </Link>
-                    <Route path="/home/design"
-                           component={Design}>
-                    </Route>
+
+
+                        <Link to={`/about`}>
+                             about
+                        </Link>
+
+                        <Route path="/home"
+                               component={api}>
+                        </Route>
+
+
+
+                        <Route path="/about"
+                               component={Wiki}>
+                        </Route>
+
+                        <Route path="/gym/:id"
+                               component={gymEditor}>
+                        </Route>
+
+
+
+
+                    </div>
+
+
                 </div>
+
 
             </Router>
 

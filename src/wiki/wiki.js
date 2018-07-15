@@ -4,45 +4,69 @@ import Research from "./Research";
 import Design from "./Design";
 import {Switch} from 'react-router'
 
+
 class Wiki extends Component {
     render() {
         return (
-            <Router>
+            <Switch>
+
                 <div>
-
-
-                    <h1>Final Project Wiki Page</h1>
-
                     <div>
-                        <h2>Team Member </h2>
+
+                        <h1>Final Project Wiki Page</h1>
+
+                        <div>
+                            <h2>Team Member </h2>
 
 
-                        <body>sijia zhu(Ken)
-                        <br/>
-                        Email:zhu.sij@husky.neu.edu
-                        <br/>
-                        Web:zhusijia.com
-                        <br/>
-                        He is align program student who has architecture background. Before come to NEU, he was an
-                        architect.
-                        <br/>
-                        he is interested in the product which have new technology with good design.
-                        <br/>
-                        In this project he will responsible for Front end and Back end.
+                            <body>sijia zhu(Ken)
+                            <br/>
+                            Email:zhu.sij@husky.neu.edu
+                            <br/>
+                            Web:zhusijia.com
+                            <br/>
+                            He is align program student who has architecture background. Before come to NEU, he was an
+                            architect.
+                            <br/>
+                            he is interested in the product which have new technology with good design.
+                            <br/>
+                            In this project he will responsible for Front end and Back end.
 
-                        </body>
+                            </body>
+
+
+                        </div>
 
 
                     </div>
 
+                <div>
 
-                </div>
+                    <Link to={'/about/research'}>
+                        Research
+                    </Link> |
 
-            </Router>
-        )
+                    <Link to={'/about/design'}>
+                        Design
+                    </Link>
+
+                    <Route path="/about/research"
+                           component={Research}>
+                    </Route>
+
+                    <Route path="/about/design"
+                           component={Design}>
+                    </Route>
+
+                     </div>
+
+                    </div>
+
+            </Switch>
+    )
 
 
     }
-}
+    }
 
-export default Wiki;
+    export default Wiki;
