@@ -1,10 +1,11 @@
 import React, {Component} from "react";
 import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"
 import { compose, withProps } from "recompose"
+import yelp from '../Api/yelp'
 const yelpApiKey = 'QpvQ6MkGeowXumpiefvYSloMnSCAQVa5ePt4FlNHwqHwc1GFUsKEkmMYbu54y4mprD-7xN-KdhX1sRO4OKLUb2jgf-Schxp3M_cBTZpL8yLRkdLO30GvKQGl03RIW3Yx'
 'use strict';
 const googleApiKey="key=AIzaSyBNnXpT4ySe4hEhQz53oaPFYzb4SamkDAw"
-const yelp = require('yelp-fusion');
+// const yelp = require('yelp-fusion');
 
 const client = yelp.client(yelpApiKey);
 

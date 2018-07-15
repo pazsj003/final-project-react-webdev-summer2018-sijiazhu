@@ -7,11 +7,11 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import {FontAwesomeIcon} from '../../node_modules/@fortawesome/react-fontawesome'
 import gymEditor from "../gym/gymEditor";
 import Design from "../wiki/Design";
-
+import yelp from './yelp'
 const yelpApiKey = 'QpvQ6MkGeowXumpiefvYSloMnSCAQVa5ePt4FlNHwqHwc1GFUsKEkmMYbu54y4mprD-7xN-KdhX1sRO4OKLUb2jgf-Schxp3M_cBTZpL8yLRkdLO30GvKQGl03RIW3Yx'
 'use strict';
 
-const yelp = require('yelp-fusion');
+// const yelp = require('yelp-fusion');
 
 const client = yelp.client(yelpApiKey);
 
