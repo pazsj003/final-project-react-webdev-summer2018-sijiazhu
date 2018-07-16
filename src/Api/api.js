@@ -287,9 +287,12 @@ class api extends Component {
 
             <Switch>
                 <div>
-                    <h1>
-                        api test
+                    <h1>Fitness network
                     </h1>
+                    <h3>
+                        Api Search
+                    </h3>
+
                     <form>
 
 
