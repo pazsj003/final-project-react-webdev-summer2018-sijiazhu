@@ -10,8 +10,11 @@ import gymEditor from '../gym/gymEditor'
 import Login from '../User/LoginPage'
 import SignUp from '../User/signup'
 import LandingPage from "./LandingPage"
-import SignUpPage from '../User/SignUpPage'
 
+import SignUpPage from '../User/SignUpPage'
+import ProfilePage from '../User/ProfilePage'
+import profileSetting from '../User/profileSetting'
+import admin from '../User/admin'
 
 import Footer from "../components/Footer/Footer.jsx";
 
@@ -26,27 +29,27 @@ class Home extends Component {
             <Router>
                 <div>
                     <div>
-                        <div>
+                        {/*<div>*/}
 
-                        <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-                            <div className="container">
-                                <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
-                                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                                    <span className="navbar-toggler-icon"> </span>
-                                </button>
-                                <div className="collapse navbar-collapse" id="navbarResponsive">
-                                    <ul className="navbar-nav ml-auto">
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to={'/signup'}>Sign Up</Link>
-                                        </li>
-                                        <li className="nav-item">
-                                            <Link className="nav-link" to={'/login'}>Log In</Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </nav>
-                        </div>
+                        {/*<nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">*/}
+                            {/*<div className="container">*/}
+                                {/*<Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>*/}
+                                {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">*/}
+                                    {/*<span className="navbar-toggler-icon"> </span>*/}
+                                {/*</button>*/}
+                                {/*<div className="collapse navbar-collapse" id="navbarResponsive">*/}
+                                    {/*<ul className="navbar-nav ml-auto">*/}
+                                        {/*<li className="nav-item">*/}
+                                            {/*<Link className="nav-link" to={'/signup'}>Sign Up</Link>*/}
+                                        {/*</li>*/}
+                                        {/*<li className="nav-item">*/}
+                                            {/*<Link className="nav-link" to={'/login'}>Log In</Link>*/}
+                                        {/*</li>*/}
+                                    {/*</ul>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                        {/*</nav>*/}
+                        {/*</div>*/}
                         <Route path="/search"
                                component={api}>
                         </Route>
@@ -64,6 +67,10 @@ class Home extends Component {
                                component={SignUpPage}>
                         </Route>
 
+                        <Route path="/admin"
+                               component={admin}>
+                        </Route>
+
                         <Route path="/about"
                                component={Wiki}>
                         </Route>
@@ -72,10 +79,20 @@ class Home extends Component {
                                component={gymEditor}>
                         </Route>
 
+                        <Route path="/profile"
+                               component={ProfilePage}>
+                        </Route>
 
                         <Route path="/home"
                                component={LandingPage}>
                         </Route>
+                        <Route path="/profilesetting"
+                               component={profileSetting}>
+                        </Route>
+
+                        {/*<Route path="/profile"*/}
+                               {/*component={ProfilePage}>*/}
+                        {/*</Route>*/}
 
                         {/*<div path="">*/}
                              {/*<LandingPage />*/}
@@ -115,14 +132,14 @@ class Home extends Component {
 
 
                         {/*<div style ={{backgroundColor:'#708090'}}>*/}
-                            {/*/!*yes it is*!/*/}
-                            {/*<Footer whiteFont />*/}
+                            {/*yes it is*/}
+
                         {/*</div>*/}
 
 
                     </div>
 
-
+                    {/*<Footer />*/}
                 </div>
 
 

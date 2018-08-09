@@ -9,7 +9,7 @@ class Research extends Component {
                     <h2>Topic one: Fitness-Network</h2>
 
                     <h3> Problem statement</h3>
-                    <body> Nowadays, people are stressful for their life: working, studying. They do not have time and
+                    <div> Nowadays, people are stressful for their life: working, studying. They do not have time and
                     motivations to do some exercise and relax. potential health problem is increasing fast in recent
                     years:
                     Diabetes, Cardiovascular problem, Depression.
@@ -23,10 +23,10 @@ class Research extends Component {
                     I want to create social network based website that help people to share their health life styles
                     like
                     fitness and motivate other people to join with them to change their life.
-                    </body>
+                    </div>
 
                     <h3> Target audience</h3>
-                    <body>
+                    <div>
                     Anyone can join the website. social network is open to everyone, but the people who want to share
                     their
                     good life style and who want to improve their left might more eager to join.
@@ -34,10 +34,10 @@ class Research extends Component {
                     Fintness lover- - Bodybuilder - Funs - Participants-family members-life changer:health problem who
                     want
                     to become health
-                    </body>
+                    </div>
 
                     <h3> Solution proposal</h3>
-                    <body>
+                    <div>
                     The website will create a local social network that allow people join and share their works. They
                     can
                     record their work for everyday, and encourage to each other to improve themselves. For example, Jame
@@ -60,9 +60,9 @@ class Research extends Component {
                     friends
                     will all know your hard works.
 
-                    </body>
+                    </div>
                     <h3> Data source</h3>
-                    <body>
+                    <div>
                     Google cloud platform :
                     <br/>
                     provide google Api like maps places and distance services.
@@ -107,29 +107,29 @@ class Research extends Component {
                     <br/>
                     https://catalog.data.gov/dataset/community-health-status-indicators-chsi-to-combat-obesity-heart-disease-and-cancer
 
-                    </body>
+                    </div>
                 </div>
                 <div>
 
                     <h2>Topic two: Designer Finder</h2>
 
                     <h3> Problem statement</h3>
-                    <body>
+                    <div>
                     People want to improve their house design quality, but they do not know how to find good designer,
                     and designer can not easy get business and find individual customer this
                     website to provide a solution for customers and designer
-                    </body>
+                    </div>
                     <h3> Target audience</h3>
-                    <body>
+                    <div>
                     Designer
                     <br/>
                     Customer:House Owner who want to design their house
-                    </body>
+                    </div>
                     <h3> Solution proposal</h3>
-                    <body>
+                    <div>
                     Designer can post their previous Design project and if customer like their design they will send
                     message to designer to make business .
-                    </body>
+                    </div>
                     <h3> Data source</h3>
                     Youtube Api
                     <br/>
@@ -144,26 +144,26 @@ class Research extends Component {
                     https://sketchfab.com/
 
 
-                    <body>
-                    </body>
+                    <div>
+                    </div>
                 </div>
                 <div>
 
                     <h2>Topic three: Game hacker</h2>
 
                     <h3> Problem statement</h3>
-                    <body>
+                    <div>
                     Player sometime is stack in one Scene of game and can not continue. This website provide gaming
                     strategy to Clearance.
-                    </body>
+                    </div>
                     <h3> Target audience</h3>
-                    <body>
+                    <div>
                     players
-                    </body>
+                    </div>
                     <h3> Solution proposal</h3>
-                    <body>
+                    <div>
                     This website will provide gaming strategy to Clearance, like video, data point. etc.
-                    </body>
+                    </div>
                     <h3> Data source</h3>
                     IGDB: Free Video Game Database API
                     <br/>
@@ -176,9 +176,9 @@ class Research extends Component {
                     Google Play Games Services
                     <br/>
                     https://developers.google.com/games/
-                    <body>
+                    <div>
 
-                    </body>
+                    </div>
                 </div>
 
             </div>

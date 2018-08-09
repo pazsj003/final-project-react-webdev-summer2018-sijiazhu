@@ -1,5 +1,5 @@
 import React from "react";
-import {  Switch } from "react-router";
+
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 // @material-ui/core components
@@ -29,6 +29,10 @@ import loginPageStyle from "../assets/jss/material-kit-react/views/loginPage.jsx
 import image from "../assets/img/bg05.jpg";
 import UserServiceClient from "../Service/UserServiceClient";
 
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {  Switch } from "react-router";
+import ProfilePage from '../User/ProfilePage'
+
 class LoginPage extends React.Component {
   constructor(props) {
     super(props);
@@ -47,6 +51,10 @@ class LoginPage extends React.Component {
 
       console.log("log in user begin " + JSON.stringify(User));
      this.setState({user:User});
+     var userurl= `/user/${User.id}`
+     //  var userurl= "../user/${User.id}"
+      // window.location.href = userurl;
+      this.props.history.push(userurl);
 
 
       console.log("user set in2"  + JSON.stringify(this.state.user));
@@ -58,31 +66,33 @@ class LoginPage extends React.Component {
       this.userServiceClient
           .login(user)
           .then((response)=>
-              this.setUser(response)
+              this.verifyLogin(response)
           )
 
   }
 
-    verifyLogin(response){
-        if (response.ok) {
+    verifyLogin(user){
 
-           var user = response.json();
-            console.log("log in user " + JSON.stringify(user));
-            this.setUser(user);
-
-            alert("success Log In");
-
-
+        if(user.status ===404){
+          console.log("not login")
+        }else{
+            if (user.role === 'normal user') {
+                var userurl= `/profile`
+                this.props.history.push(userurl);
 
 
-        }else if (response.status === 404){
-            alert('username password dont match');
+            }else if (user.role === 'coach'){
 
+                var coachurl= `/coach/${user.id}`
+                this.props.history.push(coachurl);
+
+            }
+            else if (user.role === 'admin'){
+                this.props.history.push('/admin');
+            }
         }
-        else {
 
-            throw new Error('unknow error')
-        }
+
 
     }
     updateRole(option){
@@ -114,6 +124,25 @@ class LoginPage extends React.Component {
     return (
 
       <div>
+          <div>
+
+              <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+                  <div className="container">
+                      <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
+                      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                          <span className="navbar-toggler-icon"> </span>
+                      </button>
+                      <div className="collapse navbar-collapse" id="navbarResponsive">
+                          <ul className="navbar-nav ml-auto">
+                              <li className="nav-item">
+                                  <Link className="nav-link" to={'/signup'}>Sign Up</Link>
+                              </li>
+
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
         {/*<Header*/}
           {/*absolute*/}
           {/*color="transparent"*/}
@@ -181,6 +210,7 @@ class LoginPage extends React.Component {
                             }
                         />
                         <Input
+                            type= "password"
                             placeholder="password"
                             style={{paddingTop:'20px'}}
                             onChange={text=>this.updateForm({User:{...this.state.User,password:text.target.value}})}
@@ -208,8 +238,6 @@ class LoginPage extends React.Component {
               </GridItem>
             </GridContainer>
           </div>
-
-
 
 
         </div>

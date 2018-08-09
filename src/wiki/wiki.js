@@ -8,7 +8,7 @@ import {Switch} from 'react-router'
 class Wiki extends Component {
     render() {
         return (
-            <Switch>
+            <Router>
 
                 <div>
                     <div>
@@ -19,7 +19,8 @@ class Wiki extends Component {
                             <h2>Team Member </h2>
 
 
-                            <body>sijia zhu(Ken)
+                            <div>
+                            sijia zhu(Ken)
                             <br/>
                             Email:zhu.sij@husky.neu.edu
                             <br/>
@@ -32,7 +33,7 @@ class Wiki extends Component {
                             <br/>
                             In this project he will responsible for Front end and Back end.
 
-                            </body>
+                            </div>
 
 
                         </div>
@@ -62,7 +63,7 @@ class Wiki extends Component {
 
                     </div>
 
-            </Switch>
+            </Router>
     )
 
 

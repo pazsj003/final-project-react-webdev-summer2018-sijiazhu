@@ -1,8 +1,9 @@
 import React from "react";
-import {  Switch } from "react-router";
+
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
 import '../../node_modules/font-awesome/css/font-awesome.min.css';
 // @material-ui/core components
+
 import withStyles from "../../node_modules/@material-ui/core/styles/withStyles";
 import InputAdornment from "../../node_modules/@material-ui/core/InputAdornment";
 // @material-ui/icons
@@ -10,6 +11,7 @@ import Email from "../../node_modules/@material-ui/icons/Email";
 import LockOutline from "../../node_modules/@material-ui/icons/LockOutlined";
 import People from "../../node_modules/@material-ui/icons/People";
 import Home from "../../node_modules/@material-ui/icons/Home";
+
 // core components
 import Header from "../components/Header/Header.jsx";
 import HeaderLinks from "../components/Header/HeaderLinks.jsx";
@@ -21,13 +23,21 @@ import Card from "../components/Card/Card.jsx";
 import CardBody from "../components/Card/CardBody.jsx";
 import CardHeader from "../components/Card/CardHeader.jsx";
 import CardFooter from "../components/Card/CardFooter.jsx";
+import SnackbarContent from "../components/Snackbar/SnackbarContent.jsx";
 import CustomInput from "../components/CustomInput/CustomInput.jsx";
+import InfoOutline from "@material-ui/icons/InfoOutlined";
+import Check from "@material-ui/icons/Check";
+import Warning from "@material-ui/icons/Warning";
+
 import FormControl from "@material-ui/core/FormControl";
 import Input from "@material-ui/core/Input";
 import loginPageStyle from "../assets/jss/material-kit-react/views/loginPage.jsx";
 import Select from 'react-select';
 import image from "../assets/img/bg02.jpg";
 import UserServiceClient from "../Service/UserServiceClient";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import {  Switch } from "react-router";
+import ProfilePage from '../User/ProfilePage'
 
 class SignUpPage extends React.Component {
   constructor(props) {
@@ -54,17 +64,36 @@ class SignUpPage extends React.Component {
   }
     createUser(user){
 
-        console.log("user "  + JSON.stringify(user) );
-        this.userServiceClient
-            .register(user)
-            .then((user)=>{
-                console.log("return user " + JSON.stringify(user));
-            })
+      if(user.password !== this.state.verifyPassword){
+         alert("password don't match")
+      }else{
+          console.log("user "  + JSON.stringify(user) );
+          this.userServiceClient
+              .register(user)
+              .then(res =>
+                  this.checkUser(res));
+      }
+
+
+
 
     }
+
+    checkUser(user) {
+        console.log( ' back information ' + JSON.stringify(user));
+        if(user.username !==undefined ){
+
+            window.location.href = '../login';
+        }
+
+
+    }
+
     updateRole(option){
+
         this.setState({role : option});
         this.setState({User:{ ...this.state.User,  role : option.value}});
+
     }
 
 
@@ -91,6 +120,24 @@ class SignUpPage extends React.Component {
     return (
 
       <div>
+          <div>
+              <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+                  <div className="container">
+                      <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
+                      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                          <span className="navbar-toggler-icon"> </span>
+                      </button>
+                      <div className="collapse navbar-collapse" id="navbarResponsive">
+                          <ul className="navbar-nav ml-auto">
+
+                              <li className="nav-item">
+                                  <Link className="nav-link" to={'/login'}>Log In</Link>
+                              </li>
+                          </ul>
+                      </div>
+                  </div>
+              </nav>
+          </div>
         {/*<Header*/}
           {/*absolute*/}
           {/*color="transparent"*/}
