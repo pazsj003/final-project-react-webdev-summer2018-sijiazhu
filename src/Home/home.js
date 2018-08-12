@@ -13,9 +13,12 @@ import LandingPage from "./LandingPage"
 
 import SignUpPage from '../User/SignUpPage'
 import ProfilePage from '../User/ProfilePage'
+import Publichome from '../User/Publichome'
 import profileSetting from '../User/profileSetting'
 import admin from '../User/admin'
-
+import friends from '../Friend/friends'
+import UserPage from '../Friend/UserPage'
+import serchUser from '../Friend/serchUser'
 import Footer from "../components/Footer/Footer.jsx";
 
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -29,27 +32,7 @@ class Home extends Component {
             <Router>
                 <div>
                     <div>
-                        {/*<div>*/}
 
-                        {/*<nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">*/}
-                            {/*<div className="container">*/}
-                                {/*<Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>*/}
-                                {/*<button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">*/}
-                                    {/*<span className="navbar-toggler-icon"> </span>*/}
-                                {/*</button>*/}
-                                {/*<div className="collapse navbar-collapse" id="navbarResponsive">*/}
-                                    {/*<ul className="navbar-nav ml-auto">*/}
-                                        {/*<li className="nav-item">*/}
-                                            {/*<Link className="nav-link" to={'/signup'}>Sign Up</Link>*/}
-                                        {/*</li>*/}
-                                        {/*<li className="nav-item">*/}
-                                            {/*<Link className="nav-link" to={'/login'}>Log In</Link>*/}
-                                        {/*</li>*/}
-                                    {/*</ul>*/}
-                                {/*</div>*/}
-                            {/*</div>*/}
-                        {/*</nav>*/}
-                        {/*</div>*/}
                         <Route path="/search"
                                component={api}>
                         </Route>
@@ -59,9 +42,7 @@ class Home extends Component {
                                component={Login}>
                         </Route>
 
-                        {/*<Route path="/signup"*/}
-                               {/*component={SignUp}>*/}
-                        {/*</Route>*/}
+
 
                         <Route path="/signup"
                                component={SignUpPage}>
@@ -83,6 +64,19 @@ class Home extends Component {
                                component={ProfilePage}>
                         </Route>
 
+                        <Route path="/user/:id"
+                               component={UserPage}>
+                        </Route>
+
+                        <Route path="/userpage/:id/friends"
+                               component={friends}>
+                        </Route>
+
+                        <Route path="/usersearch/:username"
+                               component={serchUser}>
+                        </Route>
+
+
                         <Route path="/home"
                                component={LandingPage}>
                         </Route>
@@ -90,9 +84,9 @@ class Home extends Component {
                                component={profileSetting}>
                         </Route>
 
-                        {/*<Route path="/profile"*/}
-                               {/*component={ProfilePage}>*/}
-                        {/*</Route>*/}
+                        <Route path="/publichome"
+                               component={Publichome}>
+                        </Route>
 
                         {/*<div path="">*/}
                              {/*<LandingPage />*/}

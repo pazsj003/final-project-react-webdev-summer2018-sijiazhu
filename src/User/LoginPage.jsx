@@ -83,7 +83,8 @@ class LoginPage extends React.Component {
 
             }else if (user.role === 'coach'){
 
-                var coachurl= `/coach/${user.id}`
+                // var coachurl= `/coach/${user.id}`
+                var coachurl= `/profile`
                 this.props.history.push(coachurl);
 
             }

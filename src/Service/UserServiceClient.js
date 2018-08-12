@@ -1,10 +1,10 @@
 
 const host = 'http://localhost:8080';
-
+const page = 'http://localhost:3000';
 const updateProfile_url = host+'/api/profile';
 const user_url = host+'/api/user';
 const Searchuser_url = host+'/api/searchuser';
-const reg = 'http://localhost:8080/api/register';
+const reg = host+ '/api/register';
 const login_url = host+'/api/login';
 const logout_url = host+'/api/logout';
 const credential='include';
@@ -40,7 +40,7 @@ export default class  UserServiceClient {
                 alert("success update");
                 return response.json()
             }
-            else if (response.status == 409) {
+            else if (response.status === 409) {
                 alert("same username used");
                 return response.status;
             }
@@ -50,30 +50,37 @@ export default class  UserServiceClient {
             alert(error);
         });
 
-
-
     }
 
     Profile() {
         return fetch(updateProfile_url, {
             credentials: credential,
         }).then(function (response) {
-            return response.json()
+            if (response.ok) {
+                console.log("log in veryf " + JSON.stringify(response) );
 
-        })
+                return response.json();
+
+
+            }else if (response.status === 401){
+
+                alert('you are log out please log in again');
+                window.location.href = page+'/login/';
+
+
+                return response.status;
+
+            }
+            else {
+
+                throw new Error('unknow error')
+            }
+
+        }).catch((error) => {
+            console.log(error);
+        });
     }
 
-
-    verifyUpdate(response) {
-        if (response.ok) {
-
-            alert("success update");
-        }
-        else if (response.status == 409) {
-            alert("same username used");
-        }
-        else throw new Error('cant update');
-    }
 
 
     logout() {
@@ -83,35 +90,15 @@ export default class  UserServiceClient {
         }).then(this.goToLogin);
     }
 
+
     goToLogin() {
-        window.location.href = '../home/';
+        window.location.href = page+'/login/';
     }
 
 
-    successCreate(response) {
-        if (response.ok) {
-
-            alert("success Create an Account")
-
-        } else if (response.status == 409) {
-            alert("same user name used");
-        }
-
-        else throw new Error('cant Create')
-
-    }
 
 
-    success(response) {
-        if (response.ok) {
 
-            alert("success register");
-            this.goToProfile();
-        }
-
-        else throw new Error('username used');
-
-    }
 
 
     login(user) {
@@ -147,37 +134,30 @@ export default class  UserServiceClient {
 
     }
 
-    verifyLogin(response){
-        if (response.ok) {
-            console.log("log in veryf " + JSON.stringify(response) );
-            alert("success Log In");
-            return response.json();
 
 
 
-        }else if (response.status === 404){
-            alert('username password dont match');
-
-        }
-        else {
-
-            throw new Error('unknow error')
-        }
-
-    }
-
-
-
-    goToProfile() {
-        window.location.href = '../profile/profile.template.client.html';
-    }
 
     findUserById(userId) {
         return fetch(user_url + '/' + userId)
             .then(function (response) {
+                if(response.ok){
                 return response.json()
+                }
+                else if (response.status === 404){
+                    alert("don't find user");
+                    return response.status;
 
-            })
+                }
+                else {
+
+                    throw new Error('unknow error')
+                }
+
+            }).catch((error) => {
+                console.log(error);
+            });
+
     }
 
     findUserByUsername(user) {
@@ -210,7 +190,12 @@ export default class  UserServiceClient {
             }).catch((error) => {
                 console.log(error);
             });
+
+
+
+
     }
+
 
     updateUser(userId, user) {
         return fetch(user_url + '/' + userId, {
@@ -226,11 +211,13 @@ export default class  UserServiceClient {
                   return response.json();
 
             }
+
             else if (response.status == 409) {
 
                 alert("same username used");
                 return response.status;
             }
+
             else throw new Error('cant update');
         }).catch((error) => {
             console.log(error);
@@ -302,7 +289,6 @@ export default class  UserServiceClient {
 
 
 
-
     deleteUser(userID) {
         return fetch(user_url + '/' + userID, {
             method: 'delete'
@@ -315,14 +301,4 @@ export default class  UserServiceClient {
 
     }
 
-    successdelete(response) {
-        if (response.ok) {
-
-            alert("success delete")
-
-        }
-
-        else throw new Error('cant not delete')
-
-    }
 }

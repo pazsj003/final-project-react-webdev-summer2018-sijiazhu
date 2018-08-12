@@ -23,7 +23,7 @@ import landingPageStyle from "../assets/jss/material-kit-react/views/landingPage
 // import ProductSection from "./Sections/ProductSection.jsx";
 import TeamSection from "./MemberSection.jsx";
 import SignUpPage from "../User/SignUpPage";
-// import WorkSection from "/WorkSection.jsx";
+// import WorkSection from "./WorkSection.jsx";
 
 const dashboardRoutes = [];
 
@@ -33,9 +33,7 @@ class LandingPage extends React.Component {
 
           this.props.history.push('/login')
 
-          {/*<Route path="/signup"*/}
-                 {/*component={SignUpPage}>*/}
-          {/*</Route>*/}
+
 
     }
   render() {

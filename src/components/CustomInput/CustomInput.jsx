@@ -17,6 +17,7 @@ import customInputStyle from "../../assets/jss/material-kit-react/components/cus
 
 function CustomInput({ ...props }) {
   const {
+    onChange,
     classes,
     formControlProps,
     labelText,
@@ -64,6 +65,7 @@ function CustomInput({ ...props }) {
         </InputLabel>
       ) : null}
       <Input
+          onChange={onChange}
         classes={{
           input: inputClasses,
           root: marginTop,

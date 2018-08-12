@@ -62,6 +62,7 @@ class admin extends Component {
         console.log("users " + JSON.stringify(UserList));
         this.setState({users:UserList})
     }
+
     deleteUser(user){
         this.userServiceClient
             .deleteUser(user.id)
@@ -129,6 +130,7 @@ class admin extends Component {
 
 
     }
+
     editUser(user){
 
         console.log("current user  " + JSON.stringify(user))
@@ -211,7 +213,7 @@ class admin extends Component {
             <div>
 
                 <div>
-
+{/***************** Friend List*/}
                     <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                         <div className="container">
                             <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
@@ -231,7 +233,7 @@ class admin extends Component {
                         </div>
                     </nav>
                 </div>
-
+{/***************** background pic and head*/}
                 <Parallax small filter image={require("../assets/img/bg02.jpg")} />
                 {/*<div className={classNames(classes.main, classes.mainRaised)}>*/}
                     <div>
@@ -258,7 +260,7 @@ class admin extends Component {
                                     </div>
                                 </GridItem>
                             </GridContainer>
-
+{/***************** User Admin*/}
                             <GridContainer justify="center">
                                 <div className="container">
 
@@ -266,7 +268,7 @@ class admin extends Component {
                                     <div>
                                         <h1 id="tittle">User Admin</h1>
 
-
+{/***************** User table*/}
                                         <table className="table">
                                             <thead>
                                             <tr>
@@ -364,6 +366,20 @@ class admin extends Component {
 
                             </GridContainer>
                         </div>
+                        <GridContainer
+                            style={{marginTop: '100px',
+                                marginBottom: '50px'
+
+                            }}
+
+                            justify="center">
+                            <div className={classes.container}>
+
+                                <br/>
+
+                            </div>
+
+                        </GridContainer>
                     </div>
                 {/*</div>*/}
                 <Footer />

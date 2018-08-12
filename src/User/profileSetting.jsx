@@ -44,6 +44,7 @@ class profileSetting extends Component {
         this.state={
             profile:'../assets/img/faces/user05.png',
             name:'',
+            SearchUser:{},
             currentUser:{
                 username:'',
                 password:'',
@@ -98,9 +99,6 @@ class profileSetting extends Component {
             .then(user=>
                 this.setUser(user)
             )
-    }
-    searchPeople(){
-
     }
 
 
@@ -185,6 +183,11 @@ class profileSetting extends Component {
         this.setState(newState);
 
     }
+    searchUser(){
+        this.props.history.push(`/usersearch/${this.state.SearchUser.username}`)
+
+    }
+
 
 
 
@@ -208,7 +211,7 @@ class profileSetting extends Component {
 
                     <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                         <div className="container">
-                            <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
+                            <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
 
 
                                 <ul className="navbar-nav ml-auto ">
@@ -220,7 +223,9 @@ class profileSetting extends Component {
                                             height:'33px',
                                             width:'350px'}}
 
-
+                                        value={this.state.SearchUser.username}
+                                        onChange={(event)=>this.updateForm(
+                                        {SearchUser:{...this.state.SearchUser,username:event.target.value}})}
 
                                         className="form-control"
                                         id="firstNameFld"
@@ -232,16 +237,24 @@ class profileSetting extends Component {
 
                                 </ul>
 
-                            <a  style={{
+                            <Button
 
-                                marginLeft:'20px',
-                                color: 'white',
-                                textDecoration: 'none',
+                                color="transparent"
+                                justIcon
 
-                            }}
-                                className=" fa fa-search"
-                                href="#"
-                                onClick={()=>this.searchPeople()}/>
+                                onClick={()=>this.searchUser()}
+                                className={classes.margin5}>
+                                <i
+                                    style={{
+                                        color:'white',
+
+
+                                    }}
+                                    className="fa fa-search" >
+
+                                </i>
+
+                            </Button>
 
 
 
@@ -344,7 +357,8 @@ class profileSetting extends Component {
                                                        className="form-control"
                                                        id="UsernameFld"
                                                        placeholder="User Name"
-                                                       readOnly/>
+                                                       readOnly
+                                                />
                                             </div>
                                         </div>
 
@@ -512,6 +526,20 @@ class profileSetting extends Component {
 
                             </GridContainer>
                         </div>
+                        <GridContainer
+                            style={{marginTop: '100px',
+                                marginBottom: '50px'
+
+                            }}
+
+                            justify="center">
+                            <div className={classes.container}>
+
+                                <br/>
+
+                            </div>
+
+                        </GridContainer>
                     </div>
                 {/*</div>*/}
                 <Footer />

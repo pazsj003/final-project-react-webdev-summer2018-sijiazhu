@@ -4,6 +4,8 @@ import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
+import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
@@ -22,9 +24,12 @@ import profile   from "../assets/img/faces/user01.png";
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import {  Switch } from "react-router";
 
+import PostCreator from "../Widget/PostEditor";
+import PostReader from "../Widget/PostReader";
 
 import profilePageStyle from "../assets/jss/material-kit-react/views/profilePage.jsx";
 import UserServiceClient from "../Service/UserServiceClient";
+import PostServiceClient from "../Service/PostServiceClient";
 
 const img =profile
 
@@ -34,20 +39,31 @@ class ProfilePage extends React.Component {
         super(props);
 
         this.state = {
+            SearchUser:{},
             profile:"",
             cardAnimaton: "cardHidden",
             User:{},
             name:'',
+            posts:[{}],
         };
 
+
         this.userServiceClient=UserServiceClient.instance;
+        this.postServiceClient=PostServiceClient.instance;
 
     }
+
+    goToFriends(){
+        this.props.history.push(`/userpage/${this.state.User.id}/friends`)
+    }
+
+
 
     logout(){
         this.userServiceClient
             .logout()
     }
+
 
     setUser(user){
         console.log("user login " + JSON.stringify(user));
@@ -55,9 +71,47 @@ class ProfilePage extends React.Component {
         this.setState({User:user})
         this.setState({name:Name})
         this.updateProfileImg(this.state.User.profileimg);
+        this.readPost();
 
 
     }
+    updateForm(newState){
+        this.setState(newState);
+    }
+
+    deletePostCB =(postId)=>{
+
+        this.postServiceClient
+            .deletePost(postId)
+            .then(()=>this.readPost())
+    }
+
+    renderPost(post, key){
+        if(post!=null){
+            const { classes, ...rest } = this.props;
+            return(
+                <GridContainer
+
+
+                    key={key} justify="center">
+                    <div
+                        style={{paddingTop: '10px'}}
+                        className={classes.container}>
+
+                        <PostReader
+                            deleteCallBack={this.deletePostCB}
+                            checkSelf={true}
+                            Post={post}
+                            User ={this.state.User}
+                        />
+
+                    </div>
+
+                </GridContainer>
+        )
+        }
+    }
+
     updateProfileImg(event){
         console.log("profile image   "  + event);
 
@@ -74,22 +128,76 @@ class ProfilePage extends React.Component {
 
 
     }
+    searchPeople(){
+
+    }
+
+    searchUser(){
+        this.props.history.push(`/usersearch/${this.state.SearchUser.username}`)
+
+    }
+
+    CallBackPost=(post)=>{
+
+        console.log("read Post from callback " + JSON.stringify(post));
+        this.setState({posts:[...this.state.posts,post]});
+
+        this.setPost(this.state.posts);
+        console.log("new posts after   callback " + JSON.stringify(this.state.posts));
+
+
+    }
+
+    readPost(){
+        console.log("inside read post check user Id " + this.state.User.id);
+        this.postServiceClient
+            .findAllPostForUser(this.state.User.id)
+            .then(posts=>
+            this.setPost(posts))
+    }
+
+
+    setPost(Posts){
+        if(Posts!=null){
+            console.log("read Post in profile set post " + JSON.stringify(Posts));
+
+            Posts.sort((a,b)=>b.timeOrder-a.timeOrder);
+
+            console.log("read Post in profile set post after sort" + JSON.stringify(Posts));
+            this.setState({posts:Posts})
+        }
+
+
+    }
     componentDidMount() {
 
         this.readProfile();
 
+
+
     }
+
 
     backtoprofile(){
 
         this.props.history.push('/profile')
     }
+
     readProfile(){
         this.userServiceClient
             .Profile()
             .then(user=>
-                this.setUser(user)
+                this.checkprofile(user)
             )
+    }
+    checkprofile(user){
+        if(user ===401){
+            console.log("log out")
+            this.props.history.push('/login');
+
+        }else{
+            this.setUser(user)
+        }
     }
 
   render() {
@@ -103,13 +211,64 @@ class ProfilePage extends React.Component {
     return (
       <div>
           <div>
-
+{/***************** NavBar*/}
               <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                   <div className="container">
-                      <Link className="navbar-brand" to={'/home'}>Fitness NetWork</Link>
-                      <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                          <span className="navbar-toggler-icon"> </span>
-                      </button>
+                      <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
+
+                      <ul className="navbar-nav ml-auto ">
+                          <li className="nav-item  ">
+
+                              <input
+                                  style={{
+
+                                      height:'33px',
+                                      width:'350px'}}
+
+                                  value={this.state.SearchUser.username}
+                                  onChange={(event)=>this.updateForm(
+                                  {SearchUser:{...this.state.SearchUser,username:event.target.value}})}
+
+                                  className="form-control"
+                                  id="firstNameFld"
+                                  placeholder="Search"/>
+
+
+                          </li>
+
+
+                      </ul>
+                      <Button
+
+                          color="transparent"
+                          justIcon
+
+                          onClick={()=>this.searchUser()}
+                          className={classes.margin5}>
+                          <i
+                              style={{
+                                  color:'white',
+
+
+                              }}
+                              className="fa fa-search" >
+
+                          </i>
+
+                      </Button>
+
+                      {/*<a  style={{*/}
+
+                          {/*marginLeft:'20px',*/}
+                          {/*color: 'white',*/}
+                          {/*textDecoration: 'none',*/}
+
+                      {/*}}*/}
+                          {/*className=" fa fa-search"*/}
+                          {/*// href="#"*/}
+                          {/*onClick={()=>this.searchUser()}/>*/}
+
+
                       <div className="collapse navbar-collapse" id="navbarResponsive">
                           <ul className="navbar-nav ml-auto">
                               <li className="nav-item">
@@ -153,7 +312,7 @@ class ProfilePage extends React.Component {
                   </div>
               </nav>
           </div>
-
+{/***************** background pic and head*/}
         <Parallax small filter image={require("../assets/img/bg01.jpg")} />
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div>
@@ -173,15 +332,30 @@ class ProfilePage extends React.Component {
                     <div className={classes.name}>
                       <h3 className={classes.title}>{this.state.name}</h3>
 
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fa fa-twitter"} />
+                      <Button
+                          round
+                          color="transparent"
+                          justIcon
+                          // link
+                          className={classes.margin5}>
+                        <i className="fa  fa-futbol-o" />
+
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fa fa-instagram"} />
+                        Gyms
+                      <Button
+                          round
+                          // size="sm"
+                          color="transparent"
+                          justIcon
+                          onClick={()=>this.goToFriends()}
+                          // link
+                          className={classes.margin5}>
+                        <i className="fa fa-users" >
+
+                        </i>
+
                       </Button>
-                      <Button justIcon link className={classes.margin5}>
-                        <i className={"fa fa-facebook"} />
-                      </Button>
+                        Following
                     </div>
                   </div>
                 </GridItem>
@@ -191,13 +365,56 @@ class ProfilePage extends React.Component {
                     {this.state.User.intro}
                 </p>
               </div>
+{/***************** PostCreator*/}
               <GridContainer justify="center">
+                  <div className={classes.container}>
 
+                      <PostCreator
+                       postcallBack={this.CallBackPost}
+                      profile={this.state.profile}
+                      User ={this.state.User}
+                      />
+
+                  </div>
 
               </GridContainer>
+
+
+
+
+{/***************** PostReader*/}
+
+                {this.state.posts.map((post,key)=>{
+
+                return(
+
+                    this.renderPost(post,key)
+
+                )}
+
+                )}
+
+
+
             </div>
+
           </div>
+            <GridContainer
+                style={{marginTop: '100px',
+                    marginBottom: '50px'
+
+                }}
+
+                justify="center">
+                <div className={classes.container}>
+
+                    <br/>
+
+                </div>
+
+            </GridContainer>
         </div>
+
         <Footer />
       </div>
     );
