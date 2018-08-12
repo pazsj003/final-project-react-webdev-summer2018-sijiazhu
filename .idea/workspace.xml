@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c96946d2-c413-4d32-8b59-a4520bdf867c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Friend/UserPage.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Friend/friends.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Friend/serchUser.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/FriendServiceClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/PostServiceClient.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User/Publichome.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Widget/PostEditor.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Widget/PostReader.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home/LandingPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/LandingPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Home/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Home/home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/UserServiceClient.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserServiceClient.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/LoginPage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/ProfilePage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/ProfilePage.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User/profileSetting.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/User/profileSetting.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CustomInput/CustomInput.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CustomInput/CustomInput.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/routes/index.jsx" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -35,21 +16,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LoginPage.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/User/LoginPage.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="586">
-              <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#189#269#0" expanded="true" />
-                <element signature="e#374#438#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProfilePage.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProfilePage.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/User/ProfilePage.jsx">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
@@ -89,15 +56,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserServiceClient.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Service/UserServiceClient.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="568">
-              <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="serchUser.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Friend/serchUser.jsx">
           <provider selected="true" editor-type-id="text-editor">
@@ -115,8 +73,26 @@
       <file leaf-file-name="FriendServiceClient.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Service/FriendServiceClient.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+            <state relative-caret-position="84">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="PostServiceClient.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Service/PostServiceClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserServiceClient.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Service/UserServiceClient.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -196,12 +172,12 @@
       <find>windows</find>
       <find>verifyUserFinder user in search user</find>
       <find>Searchuser_url</find>
-      <find>friend</find>
       <find>preview</find>
       <find>friendCheck</find>
       <find>checkselfProfile</find>
       <find>goto</find>
       <find>rend</find>
+      <find>friend</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -254,13 +230,13 @@
         <option value="$PROJECT_DIR$/src/Home/home.js" />
         <option value="$PROJECT_DIR$/src/Widget/PostEditor.jsx" />
         <option value="$PROJECT_DIR$/src/User/profileSetting.jsx" />
-        <option value="$PROJECT_DIR$/src/Service/UserServiceClient.js" />
         <option value="$PROJECT_DIR$/src/User/LoginPage.jsx" />
         <option value="$PROJECT_DIR$/src/Friend/friends.jsx" />
         <option value="$PROJECT_DIR$/src/Friend/serchUser.jsx" />
         <option value="$PROJECT_DIR$/src/Friend/UserPage.jsx" />
         <option value="$PROJECT_DIR$/src/Widget/PostReader.jsx" />
         <option value="$PROJECT_DIR$/src/User/ProfilePage.jsx" />
+        <option value="$PROJECT_DIR$/src/Service/UserServiceClient.js" />
       </list>
     </option>
   </component>
@@ -419,16 +395,15 @@
       <workItem from="1531626498848" duration="4979000" />
       <workItem from="1531632148939" duration="7416000" />
       <workItem from="1533536061169" duration="15928000" />
-      <workItem from="1533613309575" duration="183885000" />
+      <workItem from="1533613309575" duration="184241000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="273698000" />
+    <option name="totallyTimeSpent" value="274054000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="945" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -769,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/PostServiceClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CustomButtons/Button.jsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="618">
@@ -795,20 +763,6 @@
             <element signature="e#610#657#0" expanded="true" />
             <element signature="e#779#832#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/FriendServiceClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Service/UserServiceClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="194" lean-forward="true" selection-start-line="194" selection-end-line="194" />
         </state>
       </provider>
     </entry>
@@ -901,6 +855,27 @@
             <element signature="e#224#285#0" expanded="true" />
             <element signature="e#940#999#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/FriendServiceClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/PostServiceClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" column="26" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Service/UserServiceClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
