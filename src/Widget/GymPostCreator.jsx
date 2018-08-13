@@ -15,13 +15,21 @@ import CustomInput from "../components/CustomInput/CustomInput.jsx";
 import Button from "../components/CustomButtons/Button.jsx";
 import profile   from "../assets/img/faces/user01.png";
 import workStyle from "../assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
-
-
-
 import PostServiceClient from "../Service/PostServiceClient";
+import yelp from '../gym/yelp'
+
+const yelpApiKey = 'QpvQ6MkGeowXumpiefvYSloMnSCAQVa5ePt4FlNHwqHwc1GFUsKEkmMYbu54y4mprD-7xN-KdhX1sRO4OKLUb2jgf-Schxp3M_cBTZpL8yLRkdLO30GvKQGl03RIW3Yx'
+'use strict';
+
+
+const page = 'http://localhost:3000';
+
+
+const client = yelp.client(yelpApiKey);
+
+
 
 const img =profile
-const page = 'http://localhost:3000';
 
 const   untouchPost={
         title:'',
@@ -62,16 +70,17 @@ class PostEditor extends React.Component {
             name:'',
         };
         this.createPost=this.createPost.bind(this);
-        this.postServiceClient=PostServiceClient.instance;
+
         this.updateForm=this.updateForm.bind(this);
 
+        this.postServiceClient=PostServiceClient.instance;
     }
 
 
     componentDidMount() {
 
         this.setUser(this.props.User);
-
+        this.setGym(this.props.Gym);
         this.updateProfileImg(this.props.profile);
 
 
@@ -80,9 +89,16 @@ class PostEditor extends React.Component {
 
     componentWillReceiveProps(newProps){
         this.setUser(newProps.User);
+        this.setGym(newProps.Gym);
         this.updateProfileImg(newProps.profile);
 
     }
+
+    goToGymProfile(){
+        window.location.href = page+`/gym/${this.state.gym.id}`;
+    }
+
+
 
     goToUserProfile(){
 
@@ -96,7 +112,13 @@ class PostEditor extends React.Component {
     }
 
 
+    setGym(gym){
 
+
+
+        this.setState({gym:gym});
+
+    }
 
 
     createPost(){
@@ -107,7 +129,7 @@ class PostEditor extends React.Component {
             this.setState({Post:{...this.state.Post,postuserId:id}},
                 ()=>{
                     this.postServiceClient
-                        .CreatePost(this.state.User.id,this.state.Post)
+                        .CreatePostForGym(this.state.gym.id,this.state.Post)
                         .then(post=>
                             this.checkPost(post)
                         )
@@ -141,7 +163,6 @@ class PostEditor extends React.Component {
 
 
     }
-
 
     checkPreviewMode(post){
 
@@ -533,6 +554,13 @@ class PostEditor extends React.Component {
 
                   }}>
                       <div className="container-fluid">
+
+
+
+
+
+
+
                       <Button
                           color='transparent'
                           style={{
@@ -567,8 +595,50 @@ class PostEditor extends React.Component {
 
 
 
-
+                           @
                       </Button>
+
+
+
+
+
+                          <Button
+                              color='transparent'
+                              style={{
+                                  margin:'10px',
+                                  marginTop:'20px',
+                                  padding: '3px',
+                                  borderRadius: '12px',
+                                  // backgroundColor: 'Transparent',
+
+
+
+                              }}
+
+                              onClick={()=>this.goToGymProfile()}
+                          >
+                              <img  className="nav-link"
+
+
+                                    src={this.state.gym.image_url}
+                                    alt="..."
+                                    style={{
+                                        padding:'1px',
+                                        height: '50px',
+                                        width:'50px',
+                                        borderRadius: '50%'
+                                    }}
+
+                              />
+                              <h6 style = {{
+                                  margin:'5px',
+                                  color :'#2F51D8'
+                              }}>{this.state.gym.name}</h6>
+
+
+
+
+                          </Button>
 
                       </div>
 

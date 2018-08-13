@@ -31,6 +31,7 @@ export default class  GymServiceClient {
 
 
     findAllGymsForUser(userID) {
+        console.log("before userId check " + userID);
         return fetch(
             gym_user
                 .replace('UserId', userID))

@@ -8,6 +8,7 @@ import Wiki from '../wiki/wiki'
 import GymSearch from '../gym/GymSearch'
 import gymFollowed from '../gym/gymFollowed'
 import gymEditor from '../gym/gymEditor'
+import gymPage from '../gym/gymPage'
 import Login from '../User/LoginPage'
 import SignUp from '../User/signup'
 import LandingPage from "./LandingPage"
@@ -102,8 +103,14 @@ class Home extends Component {
                         </Route>
 
 
-                        <Route path="/gym/:id"
+                        <Route path="/gyms/:id"
                                component={gymEditor}>
+                        </Route>
+
+
+
+                        <Route path="/gym/:id"
+                               component={gymPage}>
                         </Route>
 
 

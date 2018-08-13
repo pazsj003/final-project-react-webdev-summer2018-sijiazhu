@@ -6,7 +6,7 @@ const host = 'http://localhost:8080';
 const post_url = host+'/api/post';
 const post_finder = host+'/api/post/postId';
 const post_userPost = host+'/api/user/UserId/post';
-
+const post_gymPost = host+'/api/gym/gymId/post';
 
 const credential='include';
 // const credential='same-origin';
@@ -45,6 +45,49 @@ export default class  PostServiceClient {
                 return response.json();
             })
     }
+
+    findAllPostForGym(gymID) {
+
+        return fetch(
+            post_gymPost
+                .replace('gymId', gymID))
+            .then(function (response) {
+                if (response.ok) {
+                    console.log("find post for gym" + JSON.stringify(response) );
+
+                    return response.json();
+
+
+                }else if (response.status === 404){
+                    console.log("check gym enroll status")
+                    return response.status;
+
+                }
+                else {
+
+                    throw new Error('unknow error')
+                }
+
+            }).catch((error) => {
+                console.log(error);
+            });
+
+    }
+
+    CreatePostForGym(gymID, post) {
+        return fetch(post_gymPost.replace('gymId', gymID),
+            {
+                body: JSON.stringify(post),
+                headers: {'Content-Type': 'application/json'},
+                method: 'POST'
+            }).then(function (response) {
+            return response.json();
+        })
+
+
+    }
+
+
 
     CreatePost(userID, post) {
         return fetch(post_userPost.replace('UserId', userID),

@@ -232,10 +232,10 @@ class friends extends Component {
 
     }
     goToFriends(){
-        this.props.history.push(`/userpage/${this.state.User.id}/friends`)
+        this.props.history.push(`/userpage/${this.state.currentUser.id}/friends`)
     }
     goToGyms(){
-        this.props.history.push(`/userpage/${this.state.User.id}/gyms`)
+        this.props.history.push(`/userpage/${this.state.currentUser.id}/gyms`)
     }
 
     setFriends(UserList){

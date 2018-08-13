@@ -23,6 +23,7 @@ const img = profile
 
 //
 const page = 'http://localhost:3000';
+
 class PostReader extends React.Component {
 
     constructor(props) {
@@ -38,6 +39,7 @@ class PostReader extends React.Component {
             profile: '',
             cardAnimaton: "cardHidden",
             User: {},
+            gym:{},
             PostUser:{},
             Post: {
                 title: '',
@@ -59,6 +61,7 @@ class PostReader extends React.Component {
     componentDidMount() {
 
         this.setPost(this.props.Post)
+        this.setGym(this.props.Gym);
         // this.setUser(this.props.User);
         this.setcheckSelf(this.props.checkSelf);
 
@@ -68,7 +71,9 @@ class PostReader extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
+
         this.setPost(newProps.Post)
+        this.setGym(this.props.Gym);
         // this.setUser(newProps.User);
         this.setcheckSelf(newProps.checkSelf);
 
@@ -77,6 +82,13 @@ class PostReader extends React.Component {
     }
 
 
+    setGym(gym){
+
+
+
+        this.setState({gym:gym});
+
+    }
 
 
     setcheckSelf(check){
@@ -136,6 +148,12 @@ class PostReader extends React.Component {
         // this.props.history.push(`/user/${user.id}`)
 
     }
+
+    goToGymProfile(gym){
+        window.location.href = page+`/gym/${gym.id}`;
+    }
+
+
 
 
     setUser(user) {
@@ -249,6 +267,8 @@ class PostReader extends React.Component {
                     }}>
 {/***************** head button*/}
                         <div className="container-fluid">
+
+
                             <Button
                                 color='transparent'
                                 style={{
@@ -280,16 +300,50 @@ class PostReader extends React.Component {
                                     color: '#2F51D8'
                                 }}>{this.state.name}</h6>
 
+                                    @
+                            </Button>
+
+
+                            <Button
+                                color='transparent'
+                                style={{
+                                    margin:'10px',
+                                    marginTop:'20px',
+                                    padding: '3px',
+                                    borderRadius: '12px',
+                                    // backgroundColor: 'Transparent',
+
+
+
+                                }}
+
+                                onClick={()=>this.goToGymProfile()}
+                            >
+                                <img  className="nav-link"
+
+
+                                      src={this.state.gym.image_url}
+                                      alt="..."
+                                      style={{
+                                          padding:'1px',
+                                          height: '50px',
+                                          width:'50px',
+                                          borderRadius: '50%'
+                                      }}
+
+                                />
+                                <h6 style = {{
+                                    margin:'5px',
+                                    color :'#2F51D8'
+                                }}>{this.state.gym.name}</h6>
+
+
+
 
                             </Button>
-                         <p
-                             className='float-none'
-                             style={{
-                                 display:'inline',
 
-                         }}>
-                            {this.state.localtime}
-                         </p>
+
+
 
 {/***************** delete button*/}
                             {this.state.checkSelf &&
@@ -313,7 +367,18 @@ class PostReader extends React.Component {
 
                         </div>
 
-{/***************** title*/}
+                        <p
+                            className='container-fluid'
+                            style={{
+                                fontSize:'15px',
+                                display:'inline',
+
+                            }}>
+                            {this.state.localtime}
+                        </p>
+
+
+                        {/***************** title*/}
                         <div className="container-fluid">
                             <h6 style={{
                                 marginTop: '20px'
