@@ -9,6 +9,7 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
+import Fitness from "@material-ui/icons/FitnessCenter";
 // core components
 import Header from "../components/Header/Header.jsx";
 import Footer from "../components/Footer/Footer.jsx";
@@ -55,6 +56,9 @@ class ProfilePage extends React.Component {
 
     goToFriends(){
         this.props.history.push(`/userpage/${this.state.User.id}/friends`)
+    }
+    goToGyms(){
+        this.props.history.push(`/userpage/${this.state.User.id}/gyms`)
     }
 
 
@@ -128,9 +132,7 @@ class ProfilePage extends React.Component {
 
 
     }
-    searchPeople(){
 
-    }
 
     searchUser(){
         this.props.history.push(`/usersearch/${this.state.SearchUser.username}`)
@@ -215,6 +217,20 @@ class ProfilePage extends React.Component {
               <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                   <div className="container">
                       <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
+
+                      <Link
+                          style={{
+                              color: 'white',
+                          }}
+
+                          className="nav-link"
+
+                            to={'/gymsearch'}>
+                          <Fitness className={classes.inputIconsColor}/>
+
+                      </Link>
+
+
 
                       <ul className="navbar-nav ml-auto ">
                           <li className="nav-item  ">
@@ -337,6 +353,7 @@ class ProfilePage extends React.Component {
                           color="transparent"
                           justIcon
                           // link
+                          onClick={()=>this.goToGyms()}
                           className={classes.margin5}>
                         <i className="fa  fa-futbol-o" />
 

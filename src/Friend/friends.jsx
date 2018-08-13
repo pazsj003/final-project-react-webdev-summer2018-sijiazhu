@@ -6,11 +6,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import UserServiceClient from "../Service/UserServiceClient";
 import FriendServiceClient from "../Service/FriendServiceClient";
-
+import { withRouter } from 'react-router';
 
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
+import Fitness from "@material-ui/icons/FitnessCenter";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // @material-ui/icons
@@ -229,6 +230,12 @@ class friends extends Component {
         }
 
 
+    }
+    goToFriends(){
+        this.props.history.push(`/userpage/${this.state.User.id}/friends`)
+    }
+    goToGyms(){
+        this.props.history.push(`/userpage/${this.state.User.id}/gyms`)
     }
 
     setFriends(UserList){
@@ -489,7 +496,17 @@ class friends extends Component {
                    <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                        <div className="container">
                            <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
+                           <Link
+                               style={{
+                                   color: 'white',
+                               }}
 
+                               className="nav-link"
+
+                               to={'/gymsearch'}>
+                               <Fitness className={classes.inputIconsColor}/>
+
+                           </Link>
                            <ul className="navbar-nav ml-auto ">
                                <li className="nav-item  ">
 {/***************** Search User*/}
@@ -599,6 +616,7 @@ class friends extends Component {
                                                color="transparent"
                                                justIcon
                                                // link
+                                               onClick={()=>this.goToGyms()}
                                                className={classes.margin5}>
                                                <i className="fa  fa-futbol-o" />
 
@@ -610,6 +628,7 @@ class friends extends Component {
                                                color="rose"
                                                justIcon
                                                // link
+                                               onClick={()=>this.goToFriends()}
                                                className={classes.margin5}>
                                                <i className="fa fa-users" >
 
@@ -713,5 +732,5 @@ class friends extends Component {
 
 }
 
+export default withStyles(profilePageStyle) (friends);
 
-export default withStyles(profilePageStyle)(friends);

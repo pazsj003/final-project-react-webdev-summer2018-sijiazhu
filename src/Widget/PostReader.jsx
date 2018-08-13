@@ -8,6 +8,7 @@ import classNames from "classnames";
 import Video from "@material-ui/icons/VideoLibrary";
 import Photo from "@material-ui/icons/AddAPhoto";
 import Clear from "@material-ui/icons/Clear";
+import { Redirect } from 'react-router-dom'
 import Link from "@material-ui/icons/Link";
 // core components
 import GridContainer from "../components/Grid/GridContainer.jsx";
@@ -16,6 +17,7 @@ import CustomInput from "../components/CustomInput/CustomInput.jsx";
 import Button from "../components/CustomButtons/Button.jsx";
 import profile from "../assets/img/faces/user01.png";
 import workStyle from "../assets/jss/material-kit-react/views/landingPageSections/workStyle.jsx";
+import UserServiceClient from "../Service/UserServiceClient";
 
 const img = profile
 
@@ -36,6 +38,7 @@ class PostReader extends React.Component {
             profile: '',
             cardAnimaton: "cardHidden",
             User: {},
+            PostUser:{},
             Post: {
                 title: '',
                 text: '',
@@ -46,23 +49,26 @@ class PostReader extends React.Component {
 
             },
             name: '',
+            postUser:{},
         };
-
+        this.userServiceClient=UserServiceClient.instance;
         this.setUser=this.setUser.bind(this);
+        this.readPostUser = this.readPostUser.bind(this);
     }
 
     componentDidMount() {
-        this.setUser(this.props.User);
-        this.setcheckSelf(this.props.checkSelf);
         this.setPost(this.props.Post)
+        // this.setUser(this.props.User);
+        this.setcheckSelf(this.props.checkSelf);
+
 
     }
 
     componentWillReceiveProps(newProps) {
-
-        this.setUser(newProps.User);
-        this.setcheckSelf(newProps.checkSelf);
         this.setPost(newProps.Post)
+        // this.setUser(newProps.User);
+        this.setcheckSelf(newProps.checkSelf);
+
 
     }
     setcheckSelf(check){
@@ -71,13 +77,36 @@ class PostReader extends React.Component {
 
     setPost(post) {
 
-        if (post != null) {
+
+        if (post.postuserId !== undefined) {
             console.log("Post in postReader" + JSON.stringify(post));
             this.setState({Post: post});
 
             this.checkMedia(post);
             this.setLocalTime(post.date)
+            this.readPostUser(post);
+
         }
+    }
+
+    readPostUser(post){
+        this.userServiceClient
+            .findUserById(post.postuserId)
+            .then(user=>
+                this.setPostUser(user)
+            )
+    }
+
+    setPostUser(user){
+        console.log("post user info in post reader 222" + JSON.stringify(user));
+        var Name = user.firstName + ' ' + user.lastName;
+        this.setState({User: user});
+        this.setState({name: Name});
+        if(user.profileimg!=undefined){
+            this.updateProfileImg(user.profileimg);
+        }
+
+
     }
 
     deletePost(){
@@ -89,13 +118,24 @@ class PostReader extends React.Component {
 
     }
 
+    goToUserProfile(user){
+        const page = 'http://localhost:3000';
+       // return(
+       //
+       //     <Link to={`/user/${user.id}`}/>
+       // )
+        window.location.href = page+`/user/${user.id}`;
+        // this.props.history.push(`/user/${user.id}`)
+
+    }
+
 
     setUser(user) {
         console.log("post user info in post reader " + JSON.stringify(user));
         var Name = user.firstName + ' ' + user.lastName;
         this.setState({User: user});
         this.setState({name: Name});
-        if(user.profileimg!=undefined){
+        if(user.profileimg!==null){
             this.updateProfileImg(user.profileimg);
         }
 
@@ -106,7 +146,7 @@ class PostReader extends React.Component {
     updateProfileImg(event) {
         console.log("post profile image in post reader   " + event);
 
-        if (event !== undefined) {
+        if (event !== null) {
             console.log("yes inside post reader img" + event);
 
             this.setState({profile: event});
@@ -213,7 +253,7 @@ class PostReader extends React.Component {
 
                                 }}
 
-                                onClick={() => this.goToUserProfile()}>
+                                onClick={() => this.goToUserProfile(this.state.User)}>
                                 <img className="nav-link"
 
 

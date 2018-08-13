@@ -14,6 +14,7 @@ import classNames from "classnames";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 // @material-ui/icons
+import Fitness from "@material-ui/icons/FitnessCenter";
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
@@ -42,11 +43,12 @@ import profilePageStyle from "../assets/jss/material-kit-react/views/profilePage
 const img =profile;
 
 
-class friends extends Component {
+class serchUser extends Component {
     constructor(props) {
 
         super(props);
         this.state = {
+            profile:'',
             searchUserName:'',
             checkFriend:false,
             name:'',
@@ -144,6 +146,7 @@ class friends extends Component {
 
         this.props.history.push('/profile')
     }
+
     readProfile(){
         this.userServiceClient
             .Profile()
@@ -299,6 +302,7 @@ class friends extends Component {
             classes.imgRoundedCircle,
             classes.imgFluid
         );
+
         let localProfileImg = img;
         var friendCheck = true;
         var localFriendCheck = this.state.friends;
@@ -490,14 +494,25 @@ class friends extends Component {
         return(
             <div>
                 <div>
-                    {/***************** NavBar*/}
+
+ {/***************** NavBar*/}
                     <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                         <div className="container">
                             <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
+                            <Link
+                                style={{
+                                    color: 'white',
+                                }}
 
+                                className="nav-link"
+
+                                to={'/gymsearch'}>
+                                <Fitness className={classes.inputIconsColor}/>
+
+                            </Link>
                             <ul className="navbar-nav ml-auto ">
                                 <li className="nav-item  ">
-                                    {/***************** Search User*/}
+{/***************** Search User*/}
                                     <input
                                         style={{
 
@@ -666,4 +681,4 @@ class friends extends Component {
 }
 
 
-export default withStyles(profilePageStyle)(friends);
+export default withStyles(profilePageStyle)(serchUser);

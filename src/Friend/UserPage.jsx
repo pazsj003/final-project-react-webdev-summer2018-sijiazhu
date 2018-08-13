@@ -9,6 +9,7 @@ import '../../node_modules/font-awesome/css/font-awesome.min.css';
 import Camera from "@material-ui/icons/Camera";
 import Palette from "@material-ui/icons/Palette";
 import Favorite from "@material-ui/icons/Favorite";
+import Fitness from "@material-ui/icons/FitnessCenter";
 // core components
 import Header from "../components/Header/Header.jsx";
 import Footer from "../components/Footer/Footer.jsx";
@@ -278,7 +279,17 @@ class UserPage extends React.Component {
                     <nav className="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
                         <div className="container">
                             <Link className="navbar-brand" to={'/publichome'}>Fitness NetWork</Link>
+                            <Link
+                                style={{
+                                    color: 'white',
+                                }}
 
+                                className="nav-link"
+
+                                to={'/gymsearch'}>
+                                <Fitness className={classes.inputIconsColor}/>
+
+                            </Link>
                             <ul className="navbar-nav ml-auto ">
                                 <li className="nav-item  ">
 

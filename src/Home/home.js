@@ -5,7 +5,8 @@ import {  Switch } from "react-router";
 
 
 import Wiki from '../wiki/wiki'
-import api from '../Api/api'
+import GymSearch from '../gym/GymSearch'
+import gymFollowed from '../gym/gymFollowed'
 import gymEditor from '../gym/gymEditor'
 import Login from '../User/LoginPage'
 import SignUp from '../User/signup'
@@ -33,10 +34,10 @@ class Home extends Component {
                 <div>
                     <div>
 
-                        <Route path="/search"
-                               component={api}>
+{/**************** Register system*/}
+                        <Route path="/home"
+                               component={LandingPage}>
                         </Route>
-
 
                         <Route path="/login"
                                component={Login}>
@@ -52,34 +53,19 @@ class Home extends Component {
                                component={admin}>
                         </Route>
 
+
+
                         <Route path="/about"
                                component={Wiki}>
                         </Route>
+{/**************** profile*/}
 
-                        <Route path="/gym/:id"
-                               component={gymEditor}>
-                        </Route>
 
                         <Route path="/profile"
                                component={ProfilePage}>
                         </Route>
 
-                        <Route path="/user/:id"
-                               component={UserPage}>
-                        </Route>
 
-                        <Route path="/userpage/:id/friends"
-                               component={friends}>
-                        </Route>
-
-                        <Route path="/usersearch/:username"
-                               component={serchUser}>
-                        </Route>
-
-
-                        <Route path="/home"
-                               component={LandingPage}>
-                        </Route>
                         <Route path="/profilesetting"
                                component={profileSetting}>
                         </Route>
@@ -88,9 +74,37 @@ class Home extends Component {
                                component={Publichome}>
                         </Route>
 
-                        {/*<div path="">*/}
-                             {/*<LandingPage />*/}
-                        {/*</div>*/}
+                        <Route path="/userpage/:id/friends"
+                               component={friends}>
+                        </Route>
+
+                        <Route path="/userpage/:id/gyms"
+                               component={gymFollowed}>
+                        </Route>
+
+
+{/**************** User-Friend*/}
+                        <Route path="/user/:id"
+                               component={UserPage}>
+                        </Route>
+
+
+
+                        <Route path="/usersearch/:username"
+                               component={serchUser}>
+                        </Route>
+
+
+{/**************** gym*/}
+
+                        <Route path="/gymsearch"
+                               component={GymSearch}>
+                        </Route>
+
+
+                        <Route path="/gym/:id"
+                               component={gymEditor}>
+                        </Route>
 
 
 
@@ -98,37 +112,12 @@ class Home extends Component {
 
 
 
-                        {/*<Link to={'/home'}>*/}
-                            {/*home*/}
-                        {/*</Link>|*/}
-
-                        {/*<Link to={'/login'}>*/}
-                            {/*login*/}
-                        {/*</Link>|*/}
-                        {/*<Link to={'/loginKen'}>*/}
-                            {/*loginKen*/}
-                        {/*</Link>|*/}
-
-                        {/*<Link to={'/search'}>*/}
-                            {/*search*/}
-                        {/*</Link>|*/}
-
-
-
-                        {/*<Link to={`/about`}>*/}
-                             {/*about*/}
-                        {/*</Link>*/}
 
 
 
 
 
 
-
-                        {/*<div style ={{backgroundColor:'#708090'}}>*/}
-                            {/*yes it is*/}
-
-                        {/*</div>*/}
 
 
                     </div>

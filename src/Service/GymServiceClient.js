@@ -3,9 +3,9 @@
 const host = 'http://localhost:8080';
 
 // const updateProfile_url = host+'/api/profile';
-const friend_url = host+'/api/friend';
-const friend_finder = host+'/api/friend/friendId';
-const friend_user = host+'/api/user/UserId/friend';
+const friend_url = host+'/api/gym';
+const gym_finder = host+'/api/gym/gymId';
+const gym_user = host+'/api/user/UserId/gym';
 
 
 const credential='include';
@@ -15,7 +15,7 @@ const credential='include';
 
 let _singleton = Symbol();
 
-export default class  FriendServiceClient {
+export default class  GymServiceClient {
 
     constructor(singletonToken) {
         if (_singleton !== singletonToken)
@@ -24,25 +24,25 @@ export default class  FriendServiceClient {
 
     static get instance() {
         if (!this[_singleton])
-            this[_singleton] = new FriendServiceClient(_singleton);
+            this[_singleton] = new GymServiceClient(_singleton);
         return this[_singleton]
     }
 
 
 
-    findAllFriendForUser(userID) {
+    findAllGymsForUser(userID) {
         return fetch(
-            friend_user
+            gym_user
                 .replace('UserId', userID))
             .then(function (response) {
                 return response.json();
             })
     }
 
-    addFriend(userID, Friend) {
-        return fetch(friend_user.replace('UserId', userID),
+    addGym(userID, Gym) {
+        return fetch(gym_user.replace('UserId', userID),
             {
-                body: JSON.stringify(Friend),
+                body: JSON.stringify(Gym),
                 headers: {'Content-Type': 'application/json'},
                 method: 'POST'
             }).then(function (response) {
@@ -50,15 +50,15 @@ export default class  FriendServiceClient {
         })
     }
 
-    deleteFriend(FriendId) {
-        return fetch(friend_finder.replace
-        ('friendId', FriendId), {
+    deleteGym(GymId) {
+        return fetch(gym_finder.replace
+        ('gymId', GymId), {
             method: 'delete'
         })
     }
 
-    findFriendById(FriendId) {
-        return fetch(friend_finder + '/' + FriendId)
+    findGymById(GymId) {
+        return fetch(gym_finder + '/' + GymId)
             .then(function (response) {
                 return response.json()
 

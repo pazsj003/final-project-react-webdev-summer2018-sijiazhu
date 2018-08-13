@@ -37,7 +37,7 @@ function Footer({ ...props }) {
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="./about"
+                href="https://finalproject-react.herokuapp.com/about"
                 className={classes.block}
                 target="_blank"
               >

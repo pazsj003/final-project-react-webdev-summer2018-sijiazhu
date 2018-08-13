@@ -1,9 +1,9 @@
 
-const host = 'https://final-project-server-sijiazhu.herokuapp.com';
-const page = 'https://finalproject-react.herokuapp.com';
+// const host = 'https://final-project-server-sijiazhu.herokuapp.com';
+// const page = 'https://finalproject-react.herokuapp.com';
 
-// const host = 'http://localhost:8080';
-// const page = 'http://localhost:3000';
+const host = 'http://localhost:8080';
+const page = 'http://localhost:3000';
 
 
 const updateProfile_url = host+'/api/profile';

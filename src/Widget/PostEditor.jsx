@@ -55,11 +55,12 @@ class PostEditor extends React.Component {
              video:'',
              linkText:'',
              link:'',
+             postuserId:1,
 
             },
             name:'',
         };
-
+        this.createPost=this.createPost.bind(this);
         this.postServiceClient=PostServiceClient.instance;
         this.updateForm=this.updateForm.bind(this);
 
@@ -82,13 +83,22 @@ class PostEditor extends React.Component {
 
     createPost(){
 
+        var id =this.state.User.id;
+
+        console.log("after create post in post editor Id " + id);
+      this.setState({Post:{...this.state.Post,postuserId:id}},
+          ()=>{
+              this.postServiceClient
+                  .CreatePost(this.state.User.id,this.state.Post)
+                  .then(post=>
+                      this.checkPost(post)
+                  )
+              console.log("after create post in post editor " + JSON.stringify(this.state.Post));
+          });
 
 
-        this.postServiceClient
-            .CreatePost(this.state.User.id,this.state.Post)
-            .then(post=>
-                this.checkPost(post)
-            )
+
+
     }
 
 
