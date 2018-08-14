@@ -28,20 +28,20 @@ function Footer({ ...props }) {
           <List className={classes.list}>
             <ListItem className={classes.inlineBlock}>
               <a
-                  href="https://zhusijia.com"
+                  href="https://github.com/pazsj003/final-project-react-webdev-summer2018-sijiazhu/wiki"
                 className={classes.block}
                 target="_blank"
               >
-                Ken Design
+                Wiki Page
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>
               <a
-                href="https://finalproject-react.herokuapp.com/about"
+                href="https://sijiazhu-homepage.herokuapp.com"
                 className={classes.block}
                 target="_blank"
               >
-                About us
+                About me
               </a>
             </ListItem>
             <ListItem className={classes.inlineBlock}>

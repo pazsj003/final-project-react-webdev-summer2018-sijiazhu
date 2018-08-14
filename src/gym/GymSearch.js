@@ -100,14 +100,16 @@ class GymSearch extends Component {
 
 //********************Services fucntion
 
-    createFriendInfo(gym){
+    createGymInfo(gym){
         var ID=gym.id
         console.log("set user to gym " + JSON.stringify(gym))
 
 
         this.setState({
             gym:{
-                ...this.state.gym,gymId:ID
+                ...this.state.gym,
+                gymId:ID,
+                userId:this.state.User.id
             }
         },()=>{
             this.FollowGym(this.state.gym);
@@ -119,13 +121,18 @@ class GymSearch extends Component {
 
         this.gymServiceClient
             .addGym(this.state.User.id,gym)
-            .then(()=> {
+            .then((response)=> {
                     return(
+                        this.setGymServer(response),
                         this.findAllGyms(this.state.User)
                     )
                 }
 
             )
+    }
+
+    setGymServer(response){
+
     }
     setGymsIdList(gymlist){
 
@@ -477,7 +484,7 @@ class GymSearch extends Component {
                             <div>
                                 {gymCheck ? (
                                     <Button
-                                        onClick={() => this.createFriendInfo(gym)}
+                                        onClick={() => this.createGymInfo(gym)}
                                         // round
                                         color="warning"
                                         justIcon

@@ -1,6 +1,6 @@
 
-// const host = 'https://final-project-server-sijiazhu.herokuapp.com';
-const host = 'http://localhost:8080';
+const host = 'https://final-project-server-sijiazhu.herokuapp.com';
+// const host = 'http://localhost:8080';
 
 // const updateProfile_url = host+'/api/profile';
 const friend_url = host+'/api/gym';
@@ -51,9 +51,12 @@ export default class  GymServiceClient {
         })
     }
 
-    deleteGym(GymId) {
+    deleteGym(GymId,User) {
         return fetch(gym_finder.replace
         ('gymId', GymId), {
+
+            body: JSON.stringify(User),
+            headers: {'Content-Type': 'application/json'},
             method: 'delete'
         })
     }

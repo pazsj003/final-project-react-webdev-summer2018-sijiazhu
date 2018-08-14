@@ -81,10 +81,13 @@ class SignUpPage extends React.Component {
 
     checkUser(user) {
         console.log( ' back information ' + JSON.stringify(user));
-        if(user.username !==undefined ){
+        if(user !==409 || user!== 406){
+            if(user.username !==undefined ){
 
-            window.location.href = '../login';
+                window.location.href = '../login';
+            }
         }
+
 
 
     }

@@ -127,7 +127,9 @@ class UserPage extends React.Component {
     goToFriends(){
         this.props.history.push(`/userpage/${this.state.currentUser.id}/friends`)
     }
-
+    goToGyms(){
+        this.props.history.push(`/userpage/${this.state.currentUser.id}/gyms`)
+    }
 
 
     logout(){
@@ -161,6 +163,9 @@ class UserPage extends React.Component {
     renderPost(post, key){
         if(post!=null){
             const { classes, ...rest } = this.props;
+
+
+
             return(
                 <GridContainer
 
@@ -402,6 +407,7 @@ class UserPage extends React.Component {
                                                 color="transparent"
                                                 justIcon
                                                 // link
+                                                onClick={()=>this.goToGyms()}
                                                 className={classes.margin5}>
                                                 <i className="fa  fa-futbol-o" />
 

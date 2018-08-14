@@ -97,6 +97,11 @@ class Publichome extends React.Component {
     renderPost(post, key){
         if(post!=null){
             const { classes, ...rest } = this.props;
+            var checkself=false;
+            if(post.postuserId === this.state.User.id){
+                checkself=true;
+            }
+
             return(
                 <GridContainer
 
@@ -108,7 +113,7 @@ class Publichome extends React.Component {
 
                         <PostReader
                             deleteCallBack={this.deletePostCB}
-                            checkSelf={true}
+                            checkSelf={checkself}
                             Post={post}
                             User ={this.state.User}
                         />
@@ -376,55 +381,7 @@ class Publichome extends React.Component {
                 <div className={classNames(classes.main, classes.mainRaised)}>
                     <div>
                         <div className={classes.container}>
-                            {/*<GridContainer justify="center">*/}
-                                {/*<GridItem xs={12} sm={12} md={6}>*/}
-                                    {/*<div className={classes.profile}>*/}
-                                        {/*<div>*/}
-                                            {/*<img  src={this.state.profile}*/}
-                                                  {/*alt="..."*/}
-                                                  {/*style={{*/}
-                                                      {/*height: '150px',*/}
-                                                      {/*width:'150px'*/}
-                                                  {/*}}*/}
-                                                  {/*className={imageClasses} />*/}
-                                        {/*</div>*/}
-                                        {/*<div className={classes.name}>*/}
-                                            {/*<h3 className={classes.title}>{this.state.name}</h3>*/}
 
-                                            {/*<Button*/}
-                                                {/*round*/}
-                                                {/*color="transparent"*/}
-                                                {/*justIcon*/}
-                                                {/*// link*/}
-                                                {/*className={classes.margin5}>*/}
-                                                {/*<i className="fa  fa-futbol-o" />*/}
-
-                                            {/*</Button>*/}
-                                            {/*Gyms*/}
-                                            {/*<Button*/}
-                                                {/*round*/}
-                                                {/*// size="sm"*/}
-                                                {/*color="transparent"*/}
-                                                {/*justIcon*/}
-                                                {/*onClick={()=>this.goToFriends()}*/}
-                                                {/*// link*/}
-                                                {/*className={classes.margin5}>*/}
-                                                {/*<i className="fa fa-users" >*/}
-
-                                                {/*</i>*/}
-
-                                            {/*</Button>*/}
-                                            {/*Following*/}
-                                        {/*</div>*/}
-                                    {/*</div>*/}
-                                {/*</GridItem>*/}
-                            {/*</GridContainer>*/}
-                            {/*<div className={classes.description}>*/}
-                                {/*<p>*/}
-                                    {/*{this.state.User.intro}*/}
-                                {/*</p>*/}
-                            {/*</div>*/}
-{/***************** PostCreator*/}
                             <GridContainer justify="center">
                                 <div className={classes.container}>
 

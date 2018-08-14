@@ -22,8 +22,8 @@ import UserServiceClient from "../Service/UserServiceClient";
 const img = profile
 
 //
-const page = 'http://localhost:3000';
-
+// const page = 'http://localhost:3000';
+const page = 'https://finalproject-react.herokuapp.com';
 class PostReader extends React.Component {
 
     constructor(props) {
@@ -40,6 +40,7 @@ class PostReader extends React.Component {
             cardAnimaton: "cardHidden",
             User: {},
             gym:{},
+            PostCreaterUserId:1,
             PostUser:{},
             Post: {
                 title: '',
@@ -59,11 +60,11 @@ class PostReader extends React.Component {
     }
 
     componentDidMount() {
-
+        this.setcheckSelf(this.props.checkSelf);
         this.setPost(this.props.Post)
         this.setGym(this.props.Gym);
         // this.setUser(this.props.User);
-        this.setcheckSelf(this.props.checkSelf);
+
 
 
 
@@ -71,11 +72,11 @@ class PostReader extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-
+        this.setcheckSelf(newProps.checkSelf);
         this.setPost(newProps.Post)
         this.setGym(this.props.Gym);
         // this.setUser(newProps.User);
-        this.setcheckSelf(newProps.checkSelf);
+
 
 
 

@@ -106,7 +106,10 @@ class gymPage extends React.Component {
     constructor(props) {
         super(props);
 
+
         this.state = {
+
+            checkself:false,
             authorization:false,
             coachOnly:false,
             SearchUser:{},
@@ -119,6 +122,7 @@ class gymPage extends React.Component {
             gym: {},
             reviews: [],
             gymIdList:[],
+            readable:false,
             isMarkerShown: false,
             location: [],
             photos:[]
@@ -520,29 +524,46 @@ class gymPage extends React.Component {
 
 
     setUser(user){
-
+        this.setState({readable:false});
+        this.setState({coachOnly:false})
         console.log("user login " + JSON.stringify(user));
         var Name=user.firstName+' ' +user.lastName ;
         this.setState({User:user})
         this.setState({name:Name})
         this.updateProfileImg(user.profileimg);
-        if(user.role === 'coach'){
+
             console.log(" coach checj gyms " + JSON.stringify(user))
             var IdList = this.state.gymIdList;
+            console.log(" current gymId " + this.state.gymId)
             console.log(" coach checj gymsList " + JSON.stringify(this.state.gymIdList))
+
+
             for(let i =0; i<IdList.length;i++ ){
 
                 if(IdList[i].gymId === this.state.gymId){
-                    console.log(" coach mode  " )
+                   // enrolled
+                    this.setState({readable:true});
+                    if(user.role === 'coach'){
+                    console.log(" coach mode editor " );
                     this.setState({coachOnly:true})
+
                 }
+                // else{
+                //      console.log(" coach mode editor no! " )
+                //      //normal user   can see post
+                //
+                //      this.setState({coachOnly:false})
+                //     }
+                    break;
+                }
+
             }
 
 
-        }
-        else{
-            this.setState({coachOnly:false})
-        }
+
+
+
+
 
         this.readPost();
 
@@ -560,9 +581,22 @@ class gymPage extends React.Component {
     }
 
     renderPost(post, key){
+
+
         if(post!=null){
             const { classes, ...rest } = this.props;
+
+            var checkself=false;
+
+            if(post.postuserId === this.state.User.id){
+                checkself=true;
+            }
+
+
+
+
             return(
+
                 <GridContainer
 
 
@@ -574,7 +608,7 @@ class gymPage extends React.Component {
                         <GymPostReader
                             Gym ={this.state.gym}
                             deleteCallBack={this.deletePostCB}
-                            checkSelf={true}
+                            checkSelf={checkself}
                             Post={post}
                             User ={this.state.User}
                         />
@@ -633,7 +667,7 @@ class gymPage extends React.Component {
         console.log("check post  the gym" + JSON.stringify(posts));
 
         if(posts ===404){
-            this.setState({authorization:true});
+            // this.setState({authorization:true});
             console.log("can not see the post because of not enorll the gym")
         }else{
             this.setPost(posts)
@@ -917,16 +951,20 @@ class gymPage extends React.Component {
 
 {/***************** PostReader*/}
 
+                            {this.state.readable &&
+                            <div>
+                                {this.state.posts.map((post, key) => {
 
-                            {this.state.posts.map((post,key)=>{
+                                        return (
 
-                                return(
+                                            this.renderPost(post, key)
 
-                                    this.renderPost(post,key)
-
+                                        )
+                                    }
                                 )}
+                            </div>
 
-                            )}
+                            }
 
 
 

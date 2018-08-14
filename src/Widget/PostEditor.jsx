@@ -21,8 +21,10 @@ import workStyle from "../assets/jss/material-kit-react/views/landingPageSection
 import PostServiceClient from "../Service/PostServiceClient";
 
 const img =profile
-const page = 'http://localhost:3000';
 
+// const page = 'http://localhost:3000';
+
+const page = 'https://finalproject-react.herokuapp.com';
 const   untouchPost={
         title:'',
         text:'',

@@ -1,9 +1,9 @@
 
-// const host = 'https://final-project-server-sijiazhu.herokuapp.com';
-// const page = 'https://finalproject-react.herokuapp.com';
+const host = 'https://final-project-server-sijiazhu.herokuapp.com';
+const page = 'https://finalproject-react.herokuapp.com';
 
-const host = 'http://localhost:8080';
-const page = 'http://localhost:3000';
+// const host = 'http://localhost:8080';
+// const page = 'http://localhost:3000';
 
 
 const updateProfile_url = host+'/api/profile';
@@ -277,9 +277,15 @@ export default class  UserServiceClient {
 
                 alert("success register");
                 return response.json();
-            }else if (response.status == 409) {
+            }else if (response.status === 409) {
                 alert("same user name used");
-                 return  response ;
+                 return  response.status ;
+
+            }
+            else if (response.status ===406){
+
+                alert("please fill out all  blank");
+                return  response.status;
 
             }
 

@@ -22,7 +22,8 @@ const yelpApiKey = 'QpvQ6MkGeowXumpiefvYSloMnSCAQVa5ePt4FlNHwqHwc1GFUsKEkmMYbu54
 'use strict';
 
 
-const page = 'http://localhost:3000';
+// const page = 'http://localhost:3000';
+const page = 'https://finalproject-react.herokuapp.com';
 
 
 const client = yelp.client(yelpApiKey);
@@ -126,7 +127,11 @@ class PostEditor extends React.Component {
             var id =this.state.User.id;
 
             console.log("after create post in post editor Id " + id);
-            this.setState({Post:{...this.state.Post,postuserId:id}},
+            this.setState({Post:{...this.state.Post,
+                        postuserId:id,
+                        gymId:this.state.gym.id
+
+            }},
                 ()=>{
                     this.postServiceClient
                         .CreatePostForGym(this.state.gym.id,this.state.Post)

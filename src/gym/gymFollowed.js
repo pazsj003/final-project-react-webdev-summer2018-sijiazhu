@@ -182,7 +182,7 @@ class friends extends Component {
 
     deleteGym(gym){
         this.gymServiceClient
-            .deleteGym(gym.id)
+            .deleteGym(gym.id,this.state.User)
             .then(()=> {
                     return(
                         // alert("user Account with username " + user.username + " deleted"),

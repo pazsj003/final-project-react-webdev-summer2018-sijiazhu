@@ -1,6 +1,8 @@
 'use strict';
 
 const _send = require('@tonybadguy/call-me-maybe');
+
+    // const cors='https://crossorigin.me/'
 const cors='https://cors-anywhere.herokuapp.com/'
 class YelpClient {
     constructor(apiKey){

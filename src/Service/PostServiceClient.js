@@ -1,6 +1,6 @@
 
-// const host = 'https://final-project-server-sijiazhu.herokuapp.com';
-const host = 'http://localhost:8080';
+const host = 'https://final-project-server-sijiazhu.herokuapp.com';
+// const host = 'http://localhost:8080';
 
 // const updateProfile_url = host+'/api/profile';
 const post_url = host+'/api/post';

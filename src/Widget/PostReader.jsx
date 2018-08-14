@@ -22,7 +22,10 @@ import UserServiceClient from "../Service/UserServiceClient";
 const img = profile
 
 //
-const page = 'http://localhost:3000';
+// const page = 'http://localhost:3000';
+
+const page = 'https://finalproject-react.herokuapp.com';
+
 class PostReader extends React.Component {
 
     constructor(props) {
